@@ -1,0 +1,24 @@
+{
+	"extends": "@wp-blocks/tsconfig",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "src/build-types",
+		"strict": true,
+		"noImplicitAny": false,
+		"resolveJsonModule": true,
+		"forceConsistentCasingInFileNames": true,
+		"pretty": true,
+		"typeRoots": [
+			"./node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"src/audio/block.json"
+	],
+	"exclude": [
+		"**/*.test.ts",
+		"build/**/*",
+		"build-types/**/*",
+	]
+}

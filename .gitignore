@@ -1,0 +1,31 @@
+# IDE directories
+.vscode
+.idea
+
+# Dependency directories
+node_modules
+vendor
+
+# Local configuration/cache files
+.php-cs-fixer.php
+.php-cs-fixer.cache
+.phpunit.result.cache
+.phpstan.neon
+
+ray.php
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Build files
+build
+
+# Temporary files
+tmp
+
+# Output of `wp-scripts plugin-zip`
+*.zip
+
+# dotenv environment variables file
+.env

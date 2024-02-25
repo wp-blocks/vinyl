@@ -1,0 +1,10 @@
+blocks/build
+blocks/build-types
+
+node_modules
+vendor
+
+**/*.md
+
+composer.lock
+package-lock.json

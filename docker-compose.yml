@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  wordpress:
+    restart: always
+    image: wordpress:6.4.1-php8.2-apache
+
+    env_file:
+      - .env
+
+    ports:
+      - ${WORDPRESS_LOCALHOST_PORT}:80
+
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_NAME} # Same as db name.
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_NAME} # Same as db name.
+      WORDPRESS_SKIP_INSTALL: "yes"
+      WORDPRESS_DEBUG: "1"
+
+    tmpfs:
+      - /var/www/html
+
+    volumes:
+      # - wordpress:/var/www/html
+      - ./:/var/www/html/wp-content/plugins/vinyl
+
+    depends_on:
+      - database
+
+  database:
+    image: mariadb:10.8
+    restart: always
+
+    env_file:
+      - .env
+
+    ports:
+      - "${WORDPRESS_DB_LOCALHOST_PORT}:3306"
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MYSQL_USER: ${WORDPRESS_DB_NAME} # Same as db name.
+      MYSQL_PASSWORD: ${WORDPRESS_DB_NAME} # Same as db name.
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME} # Same as db name.
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/usr/local/bin/healthcheck.sh",
+          "--connect",
+          "--innodb_initialized",
+        ]
+      interval: 1s
+      timeout: 1s
+      retries: 30
+
+    tmpfs:
+      - /var/lib/mysql
+
+    volumes:
+      - ./tmp/database:/docker-entrypoint-initdb.d

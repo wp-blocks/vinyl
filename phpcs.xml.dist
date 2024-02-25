@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards">
+  <description>Apply WordPress Coding Standards to all PHP files.</description>
+
+  <!--
+	#############################################################################
+	COMMAND LINE ARGUMENTS
+	https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset
+	#############################################################################
+	-->
+
+  <!-- Only scan PHP files. -->
+  <arg name="extensions" value="php" />
+
+  <!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next
+	scan. -->
+  <arg name="cache" value=".cache/phpcs.json" />
+
+  <ini name="memory_limit" value="512M" />
+
+  <!-- Strip the filepaths down to the relevant bit. -->
+  <arg name="basepath" value="./" />
+
+  <!--
+	#############################################################################
+	FILE SELECTION
+	Set which files will be subject to the scans executed using this ruleset.
+	#############################################################################
+	-->
+
+  <file>.</file>
+
+  <!-- Exclude the build folder in the current directory. -->
+  <exclude-pattern type="relative">^build/*</exclude-pattern>
+
+  <!-- Directories and third party library exclusions. -->
+  <exclude-pattern>/node_modules/*</exclude-pattern>
+  <exclude-pattern>/vendor/*</exclude-pattern>
+
+  <!--
+	#############################################################################
+	SET UP THE RULESET
+	#############################################################################
+	-->
+
+  <rule ref="WordPress" />
+
+  <!--
+	#############################################################################
+	SNIFF-SPECIFIC CONFIGURATION
+	#############################################################################
+	-->
+
+  <rule ref="WordPress.Files">
+    <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+    <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+  </rule>
+
+  <rule ref="WordPress.PHP">
+    <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+    <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_error_log" />
+    <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_print_r" />
+  </rule>
+
+  <rule ref="Generic.Commenting">
+    <exclude-pattern>tests/</exclude-pattern>
+    <exclude name="Generic.Commenting.DocComment.MissingShort" />
+    <exclude name="Generic.Commenting.DocComment.ParamNotFirst" />
+  </rule>
+
+  <rule ref="Squiz.Commenting">
+    <exclude name="Squiz.Commenting.FileComment.Missing" />
+    <exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+    <exclude name="Squiz.Commenting.ClassComment.Missing" />
+    <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment" />
+  </rule>
+
+  <rule ref="Universal.Arrays">
+    <exclude name="Universal.Arrays.DisallowShortArraySyntax" />
+  </rule>
+</ruleset>
