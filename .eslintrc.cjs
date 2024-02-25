@@ -45,6 +45,8 @@ module.exports = {
 			},
 		],
 
+		'jsdoc/require-param': 'off',
+
 		// Enable these once Gutenberg types are figured out.
 		'@typescript-eslint/no-unsafe-argument': 'off',
 		'@typescript-eslint/no-unsafe-assignment': 'off',

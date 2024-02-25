@@ -22,8 +22,8 @@
 			"attribute": "src"
 		},
 		"caption": {
-			"type": "rich-text",
-			"source": "rich-text",
+			"type": "string",
+			"source": "html",
 			"selector": "figcaption"
 		},
 		"id": {
@@ -54,9 +54,6 @@
 		"spacing": {
 			"margin": true,
 			"padding": true
-		},
-		"interactivity": {
-			"clientNavigation": true
 		}
 	},
 	"editorScript": "file:./index.js",
