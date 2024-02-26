@@ -1,10 +1,10 @@
-/**
- * WordPress dependencies
- */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import type { BlockSaveProps } from '@wordpress/blocks';
 
-export default function Save({ attributes }) {
-	const { autoplay, caption, loop, preload, src } = attributes;
+import type { Props } from './types';
+
+export default function Save({ attributes }: BlockSaveProps<Props>) {
+	const { loop, preload, src } = attributes;
 
 	return (
 		src && (
@@ -12,14 +12,22 @@ export default function Save({ attributes }) {
 				<audio
 					controls="controls"
 					src={src}
-					autoPlay={autoplay}
 					loop={loop}
 					preload={preload}
 				/>
-				{!RichText.isEmpty(caption) && (
-					<RichText.Content tagName="figcaption" value={caption} />
+				{hasCaption(attributes) && (
+					<RichText.Content
+						tagName="figcaption"
+						value={attributes.caption}
+					/>
 				)}
 			</figure>
 		)
+	);
+}
+
+function hasCaption(props: Props): props is Props & { caption: string } {
+	return (
+		typeof props.caption === 'string' && !RichText.isEmpty(props.caption)
 	);
 }

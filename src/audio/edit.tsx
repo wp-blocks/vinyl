@@ -5,29 +5,27 @@ import {
 	InspectorControls,
 	MediaPlaceholder,
 	MediaReplaceFlow,
-	RichText,
 	useBlockProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
-import { BlockEditProps } from '@wordpress/blocks';
+import type { BlockEditProps } from '@wordpress/blocks';
 import {
 	Disabled,
 	PanelBody,
 	SelectControl,
 	Spinner,
 	ToggleControl,
-	ToolbarButton,
 } from '@wordpress/components';
-import { usePrevious } from '@wordpress/compose';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useEffect, useState, useCallback } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 import { __, _x } from '@wordpress/i18n';
-import { audio as icon, caption as captionIcon } from '@wordpress/icons';
+import { audio as icon } from '@wordpress/icons';
 import { store as noticesStore } from '@wordpress/notices';
 import classnames from 'classnames';
 
 import './editor.scss';
 
+import Caption from './edit/caption';
 import type { Props } from './types';
 
 const ALLOWED_MEDIA_TYPES = ['audio'];
@@ -36,18 +34,20 @@ function VinylEdit({
 	attributes,
 	className,
 	setAttributes,
-	isSelected,
+	isSelected: isSingleSelected,
+	insertBlocksAfter,
 }: BlockEditProps<Props>) {
-	const { id, caption, loop, preload, src } = attributes;
-	const prevCaption = usePrevious(caption);
-	const [showCaption, setShowCaption] = useState(!!caption);
+	const { id, loop, preload, src } = attributes;
+
 	const isTemporaryAudio = !id && isBlobURL(src);
-	const mediaUpload = useSelect((select) => {
-		const { getSettings } = select(blockEditorStore) as {
-			getSettings: any;
-		};
-		return getSettings().mediaUpload;
-	}, []);
+
+	const { mediaUpload } = useSelect(
+		(select) => ({
+			mediaUpload: (select(blockEditorStore) as any).getSettings()
+				.mediaUpload,
+		}),
+		[]
+	);
 
 	useEffect(() => {
 		if (!id && isBlobURL(src)) {
@@ -63,30 +63,6 @@ function VinylEdit({
 			}
 		}
 	}, []);
-
-	// We need to show the caption when changes come from
-	// history navigation(undo/redo).
-	useEffect(() => {
-		if (caption && !prevCaption) {
-			setShowCaption(true);
-		}
-	}, [caption, prevCaption]);
-
-	// Focus the caption when we click to add one.
-	const captionRef = useCallback(
-		(node: HTMLElement | null) => {
-			if (node && !caption) {
-				node.focus();
-			}
-		},
-		[caption]
-	);
-
-	useEffect(() => {
-		if (!isSelected && !caption) {
-			setShowCaption(false);
-		}
-	}, [isSelected, caption]);
 
 	function toggleAttribute(attribute: any) {
 		return (newValue: any) => {
@@ -104,7 +80,9 @@ function VinylEdit({
 
 	const { createErrorNotice } = useDispatch(noticesStore);
 	function onUploadError(message: string) {
-		createErrorNotice(message, { type: 'snackbar' });
+		createErrorNotice(message, { type: 'snackbar' }).catch((e) => {
+			throw e;
+		});
 	}
 
 	function onSelectAudio(media: any) {
@@ -153,35 +131,26 @@ function VinylEdit({
 
 	return (
 		<>
-			<BlockControls group="block">
-				<ToolbarButton
-					onClick={() => {
-						setShowCaption(!showCaption);
-						if (showCaption && caption) {
-							setAttributes({ caption: undefined });
-						}
-					}}
-					icon={captionIcon}
-					isPressed={showCaption}
-					label={
-						showCaption ? __('Remove caption') : __('Add caption')
-					}
-				/>
-			</BlockControls>
-			<BlockControls group="other">
-				<MediaReplaceFlow
-					mediaId={id}
-					mediaURL={src}
-					allowedTypes={ALLOWED_MEDIA_TYPES}
-					accept="audio/*"
-					onSelect={onSelectAudio}
-					onSelectURL={onSelectURL}
-					onError={onUploadError}
-				/>
-			</BlockControls>
+			{isSingleSelected && (
+				<>
+					<BlockControls group="other">
+						<MediaReplaceFlow
+							mediaId={id}
+							mediaURL={src}
+							allowedTypes={ALLOWED_MEDIA_TYPES}
+							accept="audio/*"
+							onSelect={onSelectAudio}
+							onSelectURL={onSelectURL}
+							onError={onUploadError}
+						/>
+					</BlockControls>
+				</>
+			)}
+
 			<InspectorControls>
 				<PanelBody title={__('Settings')}>
 					<ToggleControl
+						__nextHasNoMarginBottom
 						label={__('Loop')}
 						onChange={toggleAttribute('loop')}
 						checked={loop}
@@ -207,32 +176,28 @@ function VinylEdit({
 					/>
 				</PanelBody>
 			</InspectorControls>
+
 			<figure {...blockProps}>
 				{/*
 					Disable the audio tag if the block is not selected
 					so the user clicking on it won't play the
 					file or change the position slider when the controls are enabled.
 				*/}
-				{isSelected ? (
+
+				<Disabled isDisabled={!isSingleSelected}>
 					<audio controls src={src} />
-				) : (
-					<Disabled>
-						<audio controls src={src} />
-					</Disabled>
-				)}
+				</Disabled>
+
 				{isTemporaryAudio && <Spinner />}
-				{showCaption && (!RichText.isEmpty(caption) || isSelected) && (
-					<RichText
-						identifier="caption"
-						tagName="figcaption"
-						ref={captionRef}
-						aria-label={__('Audio caption text')}
-						placeholder={__('Add caption')}
-						value={caption}
-						onChange={(value) => setAttributes({ caption: value })}
-						inlineToolbar
-					/>
-				)}
+
+				<Caption
+					attributes={attributes}
+					setAttributes={setAttributes}
+					isSelected={isSingleSelected}
+					insertBlocksAfter={insertBlocksAfter}
+					label={__('Audio caption text')}
+					showToolbarButton={isSingleSelected}
+				/>
 			</figure>
 		</>
 	);

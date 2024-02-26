@@ -6,8 +6,6 @@ export interface Props {
 	loop?: boolean;
 	src?: string;
 	preload?: string;
-
-	[key: string]: unknown;
 }
 
 /**
