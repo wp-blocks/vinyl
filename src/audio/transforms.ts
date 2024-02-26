@@ -8,6 +8,18 @@ type Transforms = Block<Props>['transforms'];
 const transforms: Transforms = {
 	from: [
 		{
+			type: 'block',
+			blocks: ['core/audio'],
+			transform: ({ src, loop, preload, caption }) => {
+				return createBlock('vinyl/audio', {
+					src,
+					loop,
+					preload,
+					caption,
+				});
+			},
+		},
+		{
 			type: 'files',
 			isMatch(files) {
 				return files.length === 1 && files[0].type.startsWith('audio/');
@@ -54,6 +66,20 @@ const transforms: Transforms = {
 						return preload;
 					},
 				},
+			},
+		},
+	],
+	to: [
+		{
+			type: 'block',
+			blocks: ['core/audio'],
+			transform: ({ src, loop, preload, caption }) => {
+				return createBlock('core/audio', {
+					src,
+					loop,
+					preload,
+					caption,
+				});
 			},
 		},
 	],
