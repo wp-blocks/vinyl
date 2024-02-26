@@ -1,4 +1,4 @@
-# @wp-block/vinyl
+# Vinyl Audio
 
 ## What is this?
 
@@ -21,3 +21,7 @@ The goal of this block is to create a customizable audio player that builds on t
 ## Inspiration
 
 - Gutenberg [`core/audio`](https://github.com/WordPress/gutenberg/tree/56df71497a18a5adfd11005aead4501a449531c7/packages/block-library/src/audio) block from `@wordpress/block-library`
+
+## License
+
+Vinyl Audio is free software, and is released under the terms of the GNU General Public License version 2. See [LICENSE.md](LICENSE.md) for complete license.
