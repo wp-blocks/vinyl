@@ -1,6 +1,6 @@
 import type { Transform } from '@wordpress/blocks';
 
-export interface Props {
+export interface Attributes {
 	caption?: string;
 	id?: number;
 	loop?: boolean;

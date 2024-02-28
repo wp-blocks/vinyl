@@ -77,6 +77,8 @@ final class Core {
 	 */
 	public function init() {
 		$this->register_blocks();
+
+		add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_assets' ] );
 	}
 
 	/**
@@ -100,6 +102,33 @@ final class Core {
 		 * @see https://developer.wordpress.org/reference/functions/register_block_type/
 		 */
 		register_block_type( $this->plugin_dir . 'build/audio/block.json' );
+	}
+
+	/**
+	 * Enqueue the block assets for the editor.
+	 *
+	 * The editor loads in an iframe. Normal block assets are not enqueued in the
+	 * iframe by default. This function enqueues the assets in the iframe. The
+	 * `media-chrome` scripts have to be loaded this way, otherwise it will not be
+	 * able to hydrate the web component player in the editor.
+	 *
+	 * https://github.com/WordPress/gutenberg/issues/47924#issuecomment-1683815920
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_assets() {
+		// Check this for how to load the `asset.php` file.
+		// https://developer.wordpress.org/reference/functions/register_block_script_handle/
+		$script_asset_path = $this->plugin_dir . 'build/media-chrome.asset.php';
+		$script_asset      = require $script_asset_path;
+		$script_dependencies = $script_asset['dependencies'] ?? [];
+
+		wp_enqueue_script(
+			'vinyl_audio_media_chrome',
+			$this->plugin_url . 'build/media-chrome.js',
+			$script_dependencies,
+			$script_asset['version'] ?? false
+		);
 	}
 
 	/**

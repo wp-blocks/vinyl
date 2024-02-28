@@ -1,9 +1,9 @@
 import { createBlobURL } from '@wordpress/blob';
 import { createBlock, type Block } from '@wordpress/blocks';
 
-import { Props } from './types';
+import { Attributes } from './types';
 
-type Transforms = Block<Props>['transforms'];
+type Transforms = Block<Attributes>['transforms'];
 
 const transforms: Transforms = {
 	from: [

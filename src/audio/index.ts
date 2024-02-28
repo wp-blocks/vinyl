@@ -8,14 +8,14 @@ import metadata from './block.json';
 import edit from './edit';
 import save from './save';
 import transforms from './transforms';
-import type { Props } from './types';
+import type { Attributes } from './types';
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType(metadata as BlockConfiguration<Props>, {
+registerBlockType(metadata as BlockConfiguration<Attributes>, {
 	icon,
 	edit,
 	save,
