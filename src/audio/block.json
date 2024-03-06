@@ -7,13 +7,8 @@
 	"category": "media",
 	"icon": "audio",
 	"description": "Embed an audio player.",
-	"keywords": [
-		"music",
-		"sound",
-		"podcast",
-		"recording"
-	],
-	"textdomain": "vinyl-audio",
+	"keywords": ["music", "sound", "podcast", "recording"],
+	"textdomain": "vinyl",
 	"attributes": {
 		"src": {
 			"type": "string",

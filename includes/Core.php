@@ -127,7 +127,8 @@ final class Core {
 			'vinyl_audio_media_chrome',
 			$this->plugin_url . 'build/media-chrome.js',
 			$script_dependencies,
-			$script_asset['version'] ?? false
+			$script_asset['version'] ?? false,
+			true
 		);
 	}
 

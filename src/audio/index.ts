@@ -19,6 +19,6 @@ registerBlockType(metadata as BlockConfiguration<Attributes>, {
 	icon,
 	edit,
 	save,
-	title: __('Vinyl Audio', 'vinyl-audio'),
+	title: __('Vinyl Audio', 'vinyl'),
 	transforms,
 });

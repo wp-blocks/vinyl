@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Vinyl Audio Player
+ * Plugin Name:       Vinyl
  * Plugin URI:        https://github.com/wp-blocks/vinyl
  * Description:       An advanced WordPress audio player.
  * Version:           0.1.0
