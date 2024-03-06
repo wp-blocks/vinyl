@@ -12,15 +12,15 @@ The goal of this block is to create a customizable audio player that builds on t
 
 ## Goals
 
-- [x] Replicate the functionality of `core/audio`.
-- [ ] Provide transforms to and from `core/audio`.
-- [ ] Accessible UI
-- [ ] Customizable UI
-- [ ] Playlists
+-   [x] Replicate the functionality of `core/audio`.
+-   [x] Provide transforms to and from `core/audio`.
+-   [ ] Accessible UI
+-   [ ] Customizable UI
+-   [ ] Playlists
 
 ## Inspiration
 
-- Gutenberg [`core/audio`](https://github.com/WordPress/gutenberg/tree/56df71497a18a5adfd11005aead4501a449531c7/packages/block-library/src/audio) block from `@wordpress/block-library`
+-   Gutenberg [`core/audio`](https://github.com/WordPress/gutenberg/tree/56df71497a18a5adfd11005aead4501a449531c7/packages/block-library/src/audio) block from `@wordpress/block-library`
 
 ## License
 

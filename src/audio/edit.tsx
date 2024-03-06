@@ -26,7 +26,8 @@ import classnames from 'classnames';
 import './editor.scss';
 
 import Caption from './edit/caption';
-import type { Props } from './types';
+import { Player } from './player/index';
+import type { Attributes } from './types';
 
 const ALLOWED_MEDIA_TYPES = ['audio'];
 
@@ -36,7 +37,7 @@ function VinylEdit({
 	setAttributes,
 	isSelected: isSingleSelected,
 	insertBlocksAfter,
-}: BlockEditProps<Props>) {
+}: BlockEditProps<Attributes>) {
 	const { id, loop, preload, src } = attributes;
 
 	const isTemporaryAudio = !id && isBlobURL(src);
@@ -185,7 +186,7 @@ function VinylEdit({
 				*/}
 
 				<Disabled isDisabled={!isSingleSelected}>
-					<audio controls src={src} />
+					<Player loop={loop} preload={preload} src={src} />
 				</Disabled>
 
 				{isTemporaryAudio && <Spinner />}
