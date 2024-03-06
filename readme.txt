@@ -1,10 +1,10 @@
-=== Vinyl Audio ===
+=== Vinyl ===
 Contributors:      bitmachin, codekraft
-Tags:              audio, block, playlist, player, sound, vinyl
+Tags:              audio, block, playlist, player, sound
 Requires at least: 6.2
 Tested up to:      6.4
 Requires PHP:      7.4
-Stable tag:        0.1.0
+Stable tag:        0.1.1
 License:           GPL-2.0-or-later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,9 @@ improving the user experience.
 * PHP version 7.4 or greater
 
 == Changelog ==
+
+= 0.1.1: March 5th, 2024 =
+* Fixed readme and plugin header to match the plugin name.
 
 = 0.1.0: February 24th, 2024 =
 * Initial release

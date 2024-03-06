@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Vinyl
+ * Plugin Name:       Vinyl Audio
  * Plugin URI:        https://github.com/wp-blocks/vinyl
  * Description:       An advanced WordPress audio player.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            codekraft, bitmachina
@@ -24,7 +24,7 @@ if ( version_compare( phpversion(), '7.4.0', '<' ) ) {
 	 * @return void
 	 */
 	function vinyl_minimum_php_version_notice() {
-		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires PHP 7.4 or higher.', 'vinyl-audio' ) . '</p></div>';
+		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires PHP 7.4 or higher.', 'vinyl' ) . '</p></div>';
 	}
 
 	add_action( 'admin_notices', 'vinyl_minimum_php_version_notice' );
@@ -37,7 +37,7 @@ if ( version_compare( $GLOBALS['wp_version'], '6.2', '<' ) ) {
 	 * @return void
 	 */
 	function vinyl_minimum_wp_version_notice() {
-		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires WordPress 6.2 or later.', 'vinyl-audio' ) . '</p></div>';
+		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires WordPress 6.2 or later.', 'vinyl' ) . '</p></div>';
 	}
 
 	add_action( 'admin_notices', 'vinyl_minimum_wp_version_notice' );
