@@ -25,14 +25,15 @@
 		"vinyl.php"
 	],
 	"scripts": {
-		"build": "wp-scripts build",
+		"build": "wp-scripts build --config webpack.config.cjs",
+		"clean": "rm -rf build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start",
-		"start:hot": "wp-scripts start --hot",
+		"start": "wp-scripts start --config webpack.config.cjs",
+		"start:hot": "wp-scripts start --hot --config webpack.config.cjs",
 		"prepare": "husky install"
 	},
 	"dependencies": {
@@ -56,6 +57,7 @@
 		"@wordpress/prettier-config": "^3.9.0",
 		"@wordpress/scripts": "^27.3.0",
 		"@wordpress/stylelint-config": "^21.35.0",
+		"@wp-blocks/make-pot": "^1.0.0",
 		"@wp-blocks/tsconfig": "^0.1.0",
 		"eslint": "^8.57.0",
 		"eslint-import-resolver-typescript": "^3.6.1",

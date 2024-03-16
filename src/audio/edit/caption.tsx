@@ -25,8 +25,8 @@ export default function Caption({
 	attributes,
 	setAttributes,
 	isSelected,
-	placeholder = __('Add caption'),
-	label = __('Caption text'),
+	placeholder = __('Add caption', 'vinyl'),
+	label = __('Caption text', 'vinyl'),
 	showToolbarButton = true,
 	className,
 	disableEditing,
@@ -76,8 +76,8 @@ export default function Caption({
 						isPressed={showCaption}
 						label={
 							showCaption
-								? __('Remove caption')
-								: __('Add caption')
+								? __('Remove caption', 'vinyl')
+								: __('Add caption', 'vinyl')
 						}
 					/>
 				</BlockControls>
