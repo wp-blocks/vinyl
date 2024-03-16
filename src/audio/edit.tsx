@@ -149,15 +149,19 @@ function VinylEdit({
 			)}
 
 			<InspectorControls>
-				<PanelBody title={__('Settings')}>
+				<PanelBody title={__('Settings', 'vinyl')}>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={__('Loop')}
+						label={__('Loop', 'vinyl')}
 						onChange={toggleAttribute('loop')}
 						checked={loop}
 					/>
 					<SelectControl
-						label={_x('Preload', 'noun; Audio block parameter')}
+						label={_x(
+							'Preload',
+							'noun; Audio block parameter',
+							'vinyl'
+						)}
 						value={preload || ''}
 						// `undefined` is required for the preload attribute to be unset.
 						onChange={(value) =>
@@ -166,12 +170,18 @@ function VinylEdit({
 							})
 						}
 						options={[
-							{ value: '', label: __('Browser default') },
-							{ value: 'auto', label: __('Auto') },
-							{ value: 'metadata', label: __('Metadata') },
+							{
+								value: '',
+								label: __('Browser default', 'vinyl'),
+							},
+							{ value: 'auto', label: __('Auto', 'vinyl') },
+							{
+								value: 'metadata',
+								label: __('Metadata', 'vinyl'),
+							},
 							{
 								value: 'none',
-								label: _x('None', 'Preload value'),
+								label: _x('None', 'Preload value', 'vinyl'),
 							},
 						]}
 					/>
@@ -196,7 +206,7 @@ function VinylEdit({
 					setAttributes={setAttributes}
 					isSelected={isSingleSelected}
 					insertBlocksAfter={insertBlocksAfter}
-					label={__('Audio caption text')}
+					label={__('Audio caption text', 'vinyl')}
 					showToolbarButton={isSingleSelected}
 				/>
 			</figure>
