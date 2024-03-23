@@ -26,6 +26,7 @@
 	],
 	"scripts": {
 		"build": "wp-scripts build --config webpack.config.cjs",
+		"build:pot": "make-pot . languages",
 		"clean": "rm -rf build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -57,7 +58,7 @@
 		"@wordpress/prettier-config": "^3.9.0",
 		"@wordpress/scripts": "^27.3.0",
 		"@wordpress/stylelint-config": "^21.35.0",
-		"@wp-blocks/make-pot": "^1.0.0",
+		"@wp-blocks/make-pot": "^1.2.0",
 		"@wp-blocks/tsconfig": "^0.1.0",
 		"eslint": "^8.57.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
