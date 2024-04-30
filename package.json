@@ -41,26 +41,26 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^9.43.0",
+		"@wordpress/icons": "^9.26.3",
 		"classnames": "^2.5.1",
-		"media-chrome": "^2.2.5"
+		"media-chrome": "^3.2.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.58",
-		"@types/react-dom": "^18.2.19",
-		"@types/wordpress__block-editor": "^11.5.10",
-		"@types/wordpress__blocks": "^12.5.13",
-		"@wordpress/block-editor": "^11.3.11",
-		"@wordpress/block-library": "^8.3.14",
-		"@wordpress/blocks": "^12.3.4",
-		"@wordpress/components": "^23.3.8",
-		"@wordpress/data": "^8.3.4",
-		"@wordpress/element": "^5.3.3",
-		"@wordpress/eslint-plugin": "^17.9.0",
-		"@wordpress/notices": "^3.26.4",
-		"@wordpress/prettier-config": "^3.9.0",
-		"@wordpress/scripts": "^27.3.0",
-		"@wordpress/stylelint-config": "^21.35.0",
+		"@types/react": "^18.3.1",
+		"@types/react-dom": "^18.3.0",
+		"@types/wordpress__block-editor": "^11.5.14",
+		"@types/wordpress__blocks": "^12.5.14",
+		"@wordpress/block-editor": "^12.3.15",
+		"@wordpress/block-library": "^8.12.19",
+		"@wordpress/blocks": "^12.12.8",
+		"@wordpress/components": "^25.1.12",
+		"@wordpress/data": "^9.5.6",
+		"@wordpress/element": "^5.12.2",
+		"@wordpress/eslint-plugin": "^17.13.0",
+		"@wordpress/notices": "^4.3.6",
+		"@wordpress/prettier-config": "^3.13.0",
+		"@wordpress/scripts": "^27.7.0",
+		"@wordpress/stylelint-config": "^21.39.0",
 		"@wp-blocks/make-pot": "^1.2.0",
 		"@wp-blocks/tsconfig": "^0.1.0",
 		"eslint": "^8.57.0",
@@ -69,9 +69,9 @@
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
 		"prettier": "^3.2.5",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"stylelint": "^14.16.1",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.5"
 	}
 }

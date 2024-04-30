@@ -15,10 +15,15 @@
 	.vinyl__player {
 		width: 100%;
 		/* Prevent layout shift from before the media controls render. */
-		min-height: 44px;
+		min-height: 88px;
 		/* The browser natively applies a 300px width to the audio block. */
 		/* We restore this as a min-width instead, for alignments. */
 		min-width: 300px;
+
+		@media (min-width: 650px) {
+			/* Prevent layout shift from before the media controls render. */
+			min-height: 44px;
+		}
 	}
 
 	.vinyl__control-bar {

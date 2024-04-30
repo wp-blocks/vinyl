@@ -3,8 +3,8 @@
  * Plugin Name:       Vinyl Audio
  * Plugin URI:        https://github.com/wp-blocks/vinyl
  * Description:       An advanced WordPress audio player.
- * Version:           0.1.2
- * Requires at least: 6.2
+ * Version:           0.1.3
+ * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            codekraft, bitmachina
  * Author URI:        https://github.com/wp-blocks
