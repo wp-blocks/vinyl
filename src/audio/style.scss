@@ -15,13 +15,66 @@
 	.vinyl__player {
 		width: 100%;
 		/* Prevent layout shift from before the media controls render. */
-		height: 44px;
+		min-height: 44px;
 		/* The browser natively applies a 300px width to the audio block. */
 		/* We restore this as a min-width instead, for alignments. */
 		min-width: 300px;
 	}
 
 	.vinyl__control-bar {
-		width: 100%;
+		display: grid;
+		grid-template-rows: [start top] auto [top bottom] auto [bottom end];
+		grid-template-columns: [start controls] 1fr [controls sound] auto [sound end];
+		align-items: center;
+
+		@media (min-width: 650px) {
+			grid-template-columns: [start controls] auto [controls range] 1fr [range sound] auto [sound end];
+			grid-template-rows: 1fr;
+			grid-column: range / range;
+		}
+	}
+
+	.vinyl__media-range {
+		grid-row: top / top;
+		grid-column: start / end;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		media-time-range {
+			width: 100%;
+		}
+
+		@media (min-width: 650px) {
+			grid-column: range / range;
+			grid-row: 1;
+		}
+	}
+
+	.vinyl__media-controls {
+		grid-column: controls / controls;
+		grid-row: bottom / bottom;
+		display: flex;
+		align-items: flex-end;
+
+		@media (min-width: 650px) {
+			grid-column: controls / controls;
+			grid-row: 1;
+			align-items: center;
+		}
+	}
+
+	.vinyl__media-sound {
+		grid-column: sound / sound;
+		grid-row: bottom / bottom;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+
+		@media (min-width: 650px) {
+			grid-column: sound / sound;
+			grid-row: 1;
+			align-items: center;
+		}
 	}
 }
