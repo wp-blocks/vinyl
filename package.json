@@ -18,7 +18,10 @@
 	"files": [
 		"build/*",
 		"includes/*",
+		"languages/*",
 		"vendor/*",
+		"composer.json",
+		"composer.lock",
 		"LICENSE.md",
 		"README.md",
 		"readme.txt",
