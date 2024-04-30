@@ -35,6 +35,8 @@
 	}
 
 	.vinyl__media-range {
+		--media-range-padding-left: 20px;
+
 		grid-row: top / top;
 		grid-column: start / end;
 		display: flex;
@@ -46,6 +48,8 @@
 		}
 
 		@media (min-width: 650px) {
+			--media-range-padding-left: 10px;
+
 			grid-column: range / range;
 			grid-row: 1;
 		}
