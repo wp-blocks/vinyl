@@ -1,10 +1,10 @@
 === Vinyl ===
 Contributors:      bitmachina, codekraft
 Tags:              audio, block, playlist, player, sound
-Requires at least: 6.2
-Tested up to:      6.4
+Requires at least: 6.3
+Tested up to:      6.5
 Requires PHP:      7.4
-Stable tag:        0.1.2
+Stable tag:        0.1.3
 License:           GPL v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ improving the user experience.
 
 = Minimum Requirements =
 
-* WordPress 6.2 or greater
+* WordPress 6.3 or greater
 * PHP version 7.4 or greater
 
 == Source Code ==
@@ -37,6 +37,10 @@ This plugin is uses the library [media-chrome](https://github.com/muxinc/media-c
 the audio player.
 
 == Changelog ==
+
+= 0.1.3: April 30th, 2024 =
+* Update media-chrome library to version v3.
+* Update minimum WordPress version to 6.3.
 
 = 0.1.2: April 29th, 2024 =
 * Fix plugin review issues. Add source code link and update the readme.txt to match the plugin header.
