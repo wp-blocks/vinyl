@@ -1,11 +1,11 @@
 === Vinyl ===
-Contributors:      bitmachin, codekraft
+Contributors:      bitmachina, codekraft
 Tags:              audio, block, playlist, player, sound
 Requires at least: 6.2
 Tested up to:      6.4
 Requires PHP:      7.4
-Stable tag:        0.1.1
-License:           GPL-2.0-or-later
+Stable tag:        0.1.2
+License:           GPL v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 Vinyl is a audio player plugin.
@@ -29,7 +29,17 @@ improving the user experience.
 * WordPress 6.2 or greater
 * PHP version 7.4 or greater
 
+== Source Code ==
+
+The source code for this plugin is available on [GitHub](https://github.com/wp-blocks/vinyl).
+
+This plugin is uses the library [media-chrome](https://github.com/muxinc/media-chrome) to render
+the audio player.
+
 == Changelog ==
+
+= 0.1.2: April 29th, 2024 =
+* Fix plugin review issues. Add source code link and update the readme.txt to match the plugin header.
 
 = 0.1.1: March 5th, 2024 =
 * Fixed readme and plugin header to match the plugin name.
