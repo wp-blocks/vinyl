@@ -33,7 +33,7 @@ if ( version_compare( phpversion(), '7.4.0', '<' ) ) {
 	return;
 }
 
-if ( is_wp_version_compatible( '6.3' ) ) {
+if ( !is_wp_version_compatible( '6.3' ) ) {
 	/**
 	 * @return void
 	 */
