@@ -12,11 +12,18 @@ import {
 } from '../../react/index.js';
 import type { Attributes } from '../types';
 
-type Props = Omit<Attributes, 'caption' | 'id'>;
+type Props = Omit<Attributes, 'caption' | 'id'> & {
+	style?: React.CSSProperties;
+};
 
-export default function Player({ loop, preload, src }: Props) {
+export default function Player({ loop, preload, src, style }: Props) {
 	return (
-		<VinylController audio={true} autohide="-1" className="vinyl__player">
+		<VinylController
+			audio={true}
+			autohide="-1"
+			className="vinyl__player"
+			style={style}
+		>
 			<audio slot="media" src={src} preload={preload} loop={loop} />
 			<VinylControlBar className="vinyl__control-bar">
 				<div className="vinyl__media-controls">

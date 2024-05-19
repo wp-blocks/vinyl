@@ -1,4 +1,7 @@
 .wp-block-vinyl-audio {
+	--vinyl-background-color: var(--wp--preset--color--base, transparent);
+	--vinyl-text-color: var(--wp--preset--color--contrast, #000);
+
 	/* This block has customizable padding, border-box makes that more predictable. */
 	box-sizing: border-box;
 
@@ -9,6 +12,15 @@
 	 */
 	figcaption {
 		margin-top: 0.5em;
+	}
+
+	vinyl-controller {
+		--media-background-color: var(--vinyl-background-color);
+		--media-control-background: var(--vinyl-background-color);
+		--media-control-hover-background: transparent;
+
+		/* The primary color is used for --media-text-color and --media-icon-color. */
+		--media-primary-color: var(--vinyl-text-color);
 	}
 
 	/* Show full-width when not aligned. */

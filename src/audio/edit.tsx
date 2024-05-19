@@ -28,6 +28,7 @@ import './editor.scss';
 import Caption from './edit/caption.js';
 import { Player } from './player/index.js';
 import type { Attributes } from './types';
+import useStyle from './use-style.js';
 
 const ALLOWED_MEDIA_TYPES = ['audio'];
 
@@ -114,6 +115,8 @@ function VinylEdit({
 		className: classes,
 	});
 
+	const style = useStyle(attributes);
+
 	if (!src) {
 		return (
 			<div {...blockProps}>
@@ -196,7 +199,12 @@ function VinylEdit({
 				*/}
 
 				<Disabled isDisabled={!isSingleSelected}>
-					<Player loop={loop} preload={preload} src={src} />
+					<Player
+						loop={loop}
+						preload={preload}
+						src={src}
+						style={style}
+					/>
 				</Disabled>
 
 				{isTemporaryAudio && <Spinner />}

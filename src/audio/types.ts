@@ -1,4 +1,5 @@
 import type { Transform } from '@wordpress/blocks';
+import type { Style } from '@wordpress/style-engine/build-types/types';
 
 export interface Attributes {
 	caption?: string;
@@ -6,6 +7,21 @@ export interface Attributes {
 	loop?: boolean;
 	src?: string;
 	preload?: string;
+
+	/**
+	 * Set by the color block support, if a text color is set.
+	 */
+	textColor?: string;
+
+	/**
+	 * Set by the color block support, if a background color is set.
+	 */
+	backgroundColor?: string;
+
+	/**
+	 * The block's style settings.
+	 */
+	style?: Style;
 }
 
 /**

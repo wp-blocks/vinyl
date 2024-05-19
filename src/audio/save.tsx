@@ -15,17 +15,24 @@ import {
 } from '../react/index.js';
 
 import type { Attributes } from './types';
+import { computeStyle } from './use-style.js';
 
 export default function Save({ attributes }: BlockSaveProps<Attributes>) {
 	const { loop, preload, src } = attributes;
 
+	const blockProps = useBlockProps.save();
+
+	// Not using a hook here because the save function should be static.
+	const style = computeStyle(attributes);
+
 	return (
 		src && (
-			<figure {...useBlockProps.save()}>
+			<figure {...blockProps}>
 				<VinylController
 					audio={true}
 					autohide="-1"
 					className="vinyl__player"
+					style={style}
 				>
 					<audio
 						slot="media"
