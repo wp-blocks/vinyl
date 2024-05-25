@@ -1,40 +1,39 @@
 import {
-	MediaPlaybackRateButton,
-	MediaController,
-	MediaControlBar,
-	MediaTimeRange,
-	MediaTimeDisplay,
-	MediaVolumeRange,
-	MediaPlayButton,
-	MediaSeekBackwardButton,
-	MediaSeekForwardButton,
-	MediaMuteButton,
-} from 'media-chrome/dist/react';
-
-import { Attributes } from '../types';
+	VinylController,
+	VinylControlBar,
+	VinylMuteButton,
+	VinylPlayButton,
+	VinylPlaybackRateButton,
+	VinylSeekBackwardButton,
+	VinylSeekForwardButton,
+	VinylTimeRange,
+	VinylTimeDisplay,
+	VinylVolumeRange,
+} from '../../react/index.js';
+import type { Attributes } from '../types';
 
 type Props = Omit<Attributes, 'caption' | 'id'>;
 
 export default function Player({ loop, preload, src }: Props) {
 	return (
-		<MediaController audio={true} autohide="-1" className="vinyl__player">
+		<VinylController audio={true} autohide="-1" className="vinyl__player">
 			<audio slot="media" src={src} preload={preload} loop={loop} />
-			<MediaControlBar className="vinyl__control-bar">
+			<VinylControlBar className="vinyl__control-bar">
 				<div className="vinyl__media-controls">
-					<MediaPlayButton></MediaPlayButton>
-					<MediaSeekBackwardButton></MediaSeekBackwardButton>
-					<MediaSeekForwardButton></MediaSeekForwardButton>
+					<VinylPlayButton></VinylPlayButton>
+					<VinylSeekBackwardButton></VinylSeekBackwardButton>
+					<VinylSeekForwardButton></VinylSeekForwardButton>
 				</div>
 				<div className="vinyl__media-range">
-					<MediaTimeRange></MediaTimeRange>
-					<MediaTimeDisplay showDuration></MediaTimeDisplay>
+					<VinylTimeRange></VinylTimeRange>
+					<VinylTimeDisplay showDuration></VinylTimeDisplay>
 				</div>
 				<div className="vinyl__media-sound">
-					<MediaPlaybackRateButton></MediaPlaybackRateButton>
-					<MediaMuteButton></MediaMuteButton>
-					<MediaVolumeRange></MediaVolumeRange>
+					<VinylPlaybackRateButton></VinylPlaybackRateButton>
+					<VinylMuteButton></VinylMuteButton>
+					<VinylVolumeRange></VinylVolumeRange>
 				</div>
-			</MediaControlBar>
-		</MediaController>
+			</VinylControlBar>
+		</VinylController>
 	);
 }

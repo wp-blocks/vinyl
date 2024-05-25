@@ -4,5 +4,11 @@
 		"noEmit": true,
 		"allowJs": true
 	},
-	"include": [".eslintrc.cjs", ".prettierrc.cjs", "lint-staged.config.cjs", "webpack.config.cjs"]
+	"include": [
+		"bin/react/**/*",
+		".eslintrc.cjs",
+		".prettierrc.cjs",
+		"lint-staged.config.cjs",
+		"webpack.config.cjs"
+	]
 }

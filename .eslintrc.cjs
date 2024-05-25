@@ -46,6 +46,12 @@ module.exports = {
 		],
 
 		'jsdoc/require-param': 'off',
+		'jsdoc/check-tag-names': [
+			'error',
+			{
+				definedTags: ['attr', 'csspart', 'cssproperty', 'slot'],
+			},
+		],
 
 		// Enable these once Gutenberg types are figured out.
 		'@typescript-eslint/no-unsafe-argument': 'off',
@@ -94,5 +100,8 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true,
+	},
+	globals: {
+		globalThis: 'writable',
 	},
 };

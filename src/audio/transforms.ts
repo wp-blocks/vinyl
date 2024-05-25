@@ -1,7 +1,7 @@
 import { createBlobURL } from '@wordpress/blob';
 import { createBlock, type Block } from '@wordpress/blocks';
 
-import { Attributes } from './types';
+import type { Attributes } from './types';
 
 type Transforms = Block<Attributes>['transforms'];
 

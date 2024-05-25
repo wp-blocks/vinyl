@@ -1,6 +1,6 @@
 // import { render } from '@wordpress/element';
 
-import 'media-chrome';
+import '../media-chrome.js';
 
 // window.addEventListener('load', () => {
 // 	const container = document.querySelector('.wp-block-vinyl-audio');
