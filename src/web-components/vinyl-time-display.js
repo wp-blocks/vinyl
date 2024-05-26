@@ -1,5 +1,4 @@
 import { __, sprintf } from '@wordpress/i18n';
-import { MediaUIAttributes } from 'media-chrome/dist/constants.js';
 import {
 	default as MediaTimeDisplay,
 	Attributes,
@@ -12,13 +11,6 @@ import { formatAsTimePhrase, formatTime } from '../utils/time.js';
 // Todo: Use data locals: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
 
 const DEFAULT_TIMES_SEP = '&nbsp;/&nbsp;';
-
-const CombinedAttributes = [
-	...Object.values(Attributes),
-	MediaUIAttributes.MEDIA_CURRENT_TIME,
-	MediaUIAttributes.MEDIA_DURATION,
-	MediaUIAttributes.MEDIA_SEEKABLE,
-];
 
 /**
  * @param {VinylTimeDisplay} el
@@ -103,10 +95,6 @@ const updateAriaValueText = (el) => {
  * @cssproperty --media-control-hover-background - `background` of control hover state.
  */
 class VinylTimeDisplay extends MediaTimeDisplay {
-	static get observedAttributes() {
-		return [...super.observedAttributes, ...CombinedAttributes, 'disabled'];
-	}
-
 	/** @type {HTMLSlotElement} */
 	#slot;
 

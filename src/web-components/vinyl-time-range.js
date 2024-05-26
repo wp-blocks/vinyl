@@ -1,5 +1,4 @@
 import { MediaTimeRange } from 'media-chrome';
-import { MediaUIAttributes } from 'media-chrome/dist/constants.js';
 
 import labels from '../labels/index.js';
 import { globalThis } from '../utils/server-safe-globals.js';
@@ -73,23 +72,6 @@ import { globalThis } from '../utils/server-safe-globals.js';
  * @cssproperty --media-box-arrow-offset - `translateX` offset of range box arrow.
  */
 class VinylTimeRange extends MediaTimeRange {
-	static get observedAttributes() {
-		return [
-			...super.observedAttributes,
-			MediaUIAttributes.MEDIA_PAUSED,
-			MediaUIAttributes.MEDIA_DURATION,
-			MediaUIAttributes.MEDIA_SEEKABLE,
-			MediaUIAttributes.MEDIA_CURRENT_TIME,
-			MediaUIAttributes.MEDIA_PREVIEW_IMAGE,
-			MediaUIAttributes.MEDIA_PREVIEW_TIME,
-			MediaUIAttributes.MEDIA_PREVIEW_CHAPTER,
-			MediaUIAttributes.MEDIA_BUFFERED,
-			MediaUIAttributes.MEDIA_PLAYBACK_RATE,
-			MediaUIAttributes.MEDIA_LOADING,
-			MediaUIAttributes.MEDIA_ENDED,
-		];
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 		this.range.setAttribute('aria-label', labels.nouns.SEEK());

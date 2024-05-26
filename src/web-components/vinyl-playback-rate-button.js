@@ -1,16 +1,19 @@
 import { __, sprintf } from '@wordpress/i18n';
+import { MediaChromeButton } from 'media-chrome';
 import {
 	MediaUIEvents,
 	MediaUIAttributes,
 } from 'media-chrome/dist/constants.js';
-import {
-	default as MediaPlaybackRateButton,
-	Attributes,
-} from 'media-chrome/dist/media-playback-rate-button.js';
 import { AttributeTokenList } from 'media-chrome/dist/utils/attribute-token-list.js';
 
 import labels from '../labels/index.js';
+import { getNumericAttr, setNumericAttr } from '../utils/element-utils.js';
 import { document, globalThis } from '../utils/server-safe-globals.js';
+import { isValidNumber } from '../utils/utils.js';
+
+export const Attributes = {
+	RATES: 'rates',
+};
 
 export const DEFAULT_RATES = [1, 1.2, 1.5, 1.7, 2];
 export const DEFAULT_RATE = 1;
@@ -32,7 +35,7 @@ slotTemplate.innerHTML = /*html*/ `
  *
  * @cssproperty [--media-playback-rate-button-display = inline-flex] - `display` property of button.
  */
-class VinylPlaybackRateButton extends MediaPlaybackRateButton {
+class VinylPlaybackRateButton extends MediaChromeButton {
 	static get observedAttributes() {
 		return [
 			...super.observedAttributes,
@@ -41,7 +44,6 @@ class VinylPlaybackRateButton extends MediaPlaybackRateButton {
 		];
 	}
 
-	/** @type {AttributeTokenList} */
 	#rates = new AttributeTokenList(this, Attributes.RATES, {
 		defaultValue: DEFAULT_RATES,
 	});
@@ -97,16 +99,43 @@ class VinylPlaybackRateButton extends MediaPlaybackRateButton {
 		}
 	}
 
+	/**
+	 * @type {number|undefined} The current playback rate
+	 */
+	get mediaPlaybackRate() {
+		return getNumericAttr(
+			this,
+			MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+			DEFAULT_RATE
+		);
+	}
+
+	/**
+	 * @type {number|undefined} The current playback rate
+	 */
+	set mediaPlaybackRate(value) {
+		setNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, value);
+	}
+
 	handleClick() {
 		const availableRates = Array.from(
 			this.#rates.values(),
 			(str) => +str
 		).sort((a, b) => a - b);
 
-		const detail =
-			availableRates.find((r) => r > this.mediaPlaybackRate) ??
-			availableRates[0] ??
-			DEFAULT_RATE;
+		const currentRate = this.mediaPlaybackRate;
+
+		/** @type {number|undefined} */
+		let detail;
+
+		if (isValidNumber(currentRate)) {
+			detail = availableRates.find((r) => r > currentRate);
+		}
+
+		if (!detail) {
+			detail = availableRates[0] ?? DEFAULT_RATE;
+		}
+
 		const evt = new globalThis.CustomEvent(
 			MediaUIEvents.MEDIA_PLAYBACK_RATE_REQUEST,
 			{ composed: true, bubbles: true, detail }

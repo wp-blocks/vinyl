@@ -19,15 +19,6 @@ const formatAsPercentString = ({ value }) => `${Math.round(value * 100)}%`;
  * @cssproperty [--media-volume-range-display = inline-block] - `display` property of range.
  */
 class VinylVolumeRange extends MediaVolumeRange {
-	static get observedAttributes() {
-		return [
-			...super.observedAttributes,
-			MediaUIAttributes.MEDIA_VOLUME,
-			MediaUIAttributes.MEDIA_MUTED,
-			MediaUIAttributes.MEDIA_VOLUME_UNAVAILABLE,
-		];
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 		this.range.setAttribute('aria-label', labels.nouns.VOLUME());

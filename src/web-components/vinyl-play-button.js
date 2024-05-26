@@ -22,14 +22,6 @@ const updateAriaLabel = (el) => {
  * @cssproperty [--media-play-button-display = inline-flex] - `display` property of button.
  */
 class VinylPlayButton extends MediaPlayButton {
-	static get observedAttributes() {
-		return [
-			...super.observedAttributes,
-			MediaUIAttributes.MEDIA_PAUSED,
-			MediaUIAttributes.MEDIA_ENDED,
-		];
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 		updateAriaLabel(this);

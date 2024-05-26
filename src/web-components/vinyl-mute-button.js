@@ -25,13 +25,6 @@ const updateAriaLabel = (el) => {
  * @cssproperty [--media-mute-button-display = inline-flex] - `display` property of button.
  */
 class VinylMuteButton extends MediaMuteButton {
-	static get observedAttributes() {
-		return [
-			...super.observedAttributes,
-			MediaUIAttributes.MEDIA_VOLUME_LEVEL,
-		];
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 		updateAriaLabel(this);

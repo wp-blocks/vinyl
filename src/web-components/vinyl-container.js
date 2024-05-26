@@ -1,4 +1,3 @@
-import { MediaUIAttributes } from 'media-chrome/dist/constants.js';
 import {
 	MediaContainer,
 	Attributes,
@@ -6,8 +5,6 @@ import {
 
 import labels from '../labels/index.js';
 import { globalThis } from '../utils/server-safe-globals.js';
-
-const MEDIA_UI_ATTRIBUTE_NAMES = Object.values(MediaUIAttributes);
 
 /**
  * The container component for the media player.
@@ -29,23 +26,6 @@ const MEDIA_UI_ATTRIBUTE_NAMES = Object.values(MediaUIAttributes);
  * @cssproperty --media-slot-display - `display` of the media slot (default none for [audio] usage).
  */
 class VinylContainer extends MediaContainer {
-	static get observedAttributes() {
-		return (
-			[Attributes.AUTOHIDE, Attributes.GESTURES_DISABLED]
-				.concat(MEDIA_UI_ATTRIBUTE_NAMES)
-				// Filter out specific / complex data media UI attributes
-				// that shouldn't be propagated to this state receiver element.
-				.filter(
-					(name) =>
-						![
-							MediaUIAttributes.MEDIA_RENDITION_LIST,
-							MediaUIAttributes.MEDIA_AUDIO_TRACK_LIST,
-							MediaUIAttributes.MEDIA_CHAPTERS_CUES,
-						].includes(name)
-				)
-		);
-	}
-
 	connectedCallback() {
 		super.connectedCallback();
 
