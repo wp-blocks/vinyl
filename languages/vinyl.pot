@@ -1,18 +1,18 @@
 # Copyright (C) 2024 vinyl
-# This file is distributed under the GPL       v2 or later license.
+# This file is distributed under the GPL v2 or later license.
 msgid ""
 msgstr ""
-"Project-Id-Version: vinyl 0.1.1\n"
+"Project-Id-Version: vinyl 0.1.3\n"
 "Report-Msgid-Bugs-To: codekraft, bitmachina <EMAIL>\n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"POT-Creation-Date: 2024-03-23T14:21:53.105Z\n"
+"POT-Creation-Date: 2024-05-27T14:00:03.421Z\n"
 "PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: codekraft, bitmachina <EMAIL>\n"
 "Language-Team: codekraft, bitmachina <EMAIL>\n"
-"X-Generator: @wp-blocks/make-pot 1.2.0\n"
+"X-Generator: @wp-blocks/make-pot 1.3.2\n"
 "Language: en\n"
 "domain: X-Domain: vinyl\n"
 
@@ -47,7 +47,156 @@ msgid "Vinyl Audio requires PHP 7.4 or higher."
 msgstr ""
 
 #: vinyl.php:41
-msgid "Vinyl Audio requires WordPress 6.2 or later."
+msgid "Vinyl Audio requires WordPress 6.3 or later."
+msgstr ""
+
+#: src/web-components/vinyl-time-display.js:41
+msgid "Media not loaded, unknown time."
+msgstr ""
+
+# 1: current time, 2: total time
+#: src/web-components/vinyl-time-display.js:77
+msgid "%1$s of %2$s"
+msgstr ""
+
+# playback rate with multiplication symbol
+#: src/web-components/vinyl-playback-rate-button.js:58
+#: src/web-components/vinyl-playback-rate-button.js:76
+msgid "%sx"
+msgstr ""
+
+#: src/utils/time.js:37
+msgid "hour"
+msgstr ""
+
+#: src/utils/time.js:38
+msgid "hours"
+msgstr ""
+
+#: src/utils/time.js:41
+msgid "minute"
+msgstr ""
+
+#: src/utils/time.js:42
+msgid "minutes"
+msgstr ""
+
+#: src/utils/time.js:45
+msgid "second"
+msgstr ""
+
+#: src/utils/time.js:46
+msgid "seconds"
+msgstr ""
+
+#: src/labels/create-labels.js:5
+msgid "audio player"
+msgstr ""
+
+#: src/labels/create-labels.js:6
+msgid "video player"
+msgstr ""
+
+#: src/labels/create-labels.js:7
+msgid "volume"
+msgstr ""
+
+#: src/labels/create-labels.js:8
+msgid "seek"
+msgstr ""
+
+#: src/labels/create-labels.js:9
+msgid "closed captions"
+msgstr ""
+
+#: src/labels/create-labels.js:13
+msgid "playback time"
+msgstr ""
+
+#: src/labels/create-labels.js:14
+msgid "media loading"
+msgstr ""
+
+#: src/labels/create-labels.js:15
+msgid "settings"
+msgstr ""
+
+#: src/labels/create-labels.js:16
+msgid "audio tracks"
+msgstr ""
+
+#: src/labels/create-labels.js:17
+msgid "quality"
+msgstr ""
+
+#: src/labels/create-labels.js:21
+msgid "play"
+msgstr ""
+
+#: src/labels/create-labels.js:22
+msgid "pause"
+msgstr ""
+
+#: src/labels/create-labels.js:23
+msgid "mute"
+msgstr ""
+
+#: src/labels/create-labels.js:24
+msgid "unmute"
+msgstr ""
+
+#: src/labels/create-labels.js:25
+msgid "start airplay"
+msgstr ""
+
+#: src/labels/create-labels.js:26
+msgid "stop airplay"
+msgstr ""
+
+#: src/labels/create-labels.js:27
+msgid "start casting"
+msgstr ""
+
+#: src/labels/create-labels.js:28
+msgid "stop casting"
+msgstr ""
+
+#: src/labels/create-labels.js:29
+msgid "enter fullscreen mode"
+msgstr ""
+
+#: src/labels/create-labels.js:30
+msgid "exit fullscreen mode"
+msgstr ""
+
+#: src/labels/create-labels.js:31
+msgid "enter picture in picture mode"
+msgstr ""
+
+#: src/labels/create-labels.js:32
+msgid "exit picture in picture mode"
+msgstr ""
+
+# number of seconds to seek forward.
+#: src/labels/create-labels.js:36
+msgid "seek forward %s second"
+msgid_plural "seek forward %s seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+# number of seconds to seek backward.
+#: src/labels/create-labels.js:47
+msgid "seek back %s second"
+msgid_plural "seek back %s seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/labels/create-labels.js:55
+msgid "seek to live"
+msgstr ""
+
+#: src/labels/create-labels.js:56
+msgid "playing live"
 msgstr ""
 
 #: src/audio/edit.tsx:152
@@ -72,21 +221,6 @@ msgstr ""
 
 #: src/audio/edit.tsx:209
 msgid "Audio caption text"
-msgstr ""
-
-#: block.json
-#. title
-msgid "title"
-msgstr ""
-
-#: block.json
-#. description
-msgid "description"
-msgstr ""
-
-#: block.json
-#. keywords
-msgid "keywords"
 msgstr ""
 
 #: src/audio/edit/caption.tsx:28
