@@ -25,8 +25,8 @@ import classnames from 'classnames';
 
 import './editor.scss';
 
-import Caption from './edit/caption';
-import { Player } from './player/index';
+import Caption from './edit/caption.js';
+import { Player } from './player/index.js';
 import type { Attributes } from './types';
 
 const ALLOWED_MEDIA_TYPES = ['audio'];

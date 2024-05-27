@@ -1,17 +1,18 @@
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 import type { BlockSaveProps } from '@wordpress/blocks';
+
 import {
-	MediaPlaybackRateButton,
-	MediaController,
-	MediaControlBar,
-	MediaTimeRange,
-	MediaTimeDisplay,
-	MediaVolumeRange,
-	MediaPlayButton,
-	MediaSeekBackwardButton,
-	MediaSeekForwardButton,
-	MediaMuteButton,
-} from 'media-chrome/dist/react';
+	VinylController,
+	VinylControlBar,
+	VinylMuteButton,
+	VinylPlayButton,
+	VinylPlaybackRateButton,
+	VinylSeekBackwardButton,
+	VinylSeekForwardButton,
+	VinylTimeRange,
+	VinylTimeDisplay,
+	VinylVolumeRange,
+} from '../react/index.js';
 
 import type { Attributes } from './types';
 
@@ -21,7 +22,7 @@ export default function Save({ attributes }: BlockSaveProps<Attributes>) {
 	return (
 		src && (
 			<figure {...useBlockProps.save()}>
-				<MediaController
+				<VinylController
 					audio={true}
 					autohide="-1"
 					className="vinyl__player"
@@ -32,23 +33,23 @@ export default function Save({ attributes }: BlockSaveProps<Attributes>) {
 						preload={preload}
 						loop={loop}
 					/>
-					<MediaControlBar className="vinyl__control-bar">
+					<VinylControlBar className="vinyl__control-bar">
 						<div className="vinyl__media-controls">
-							<MediaPlayButton></MediaPlayButton>
-							<MediaSeekBackwardButton></MediaSeekBackwardButton>
-							<MediaSeekForwardButton></MediaSeekForwardButton>
+							<VinylPlayButton></VinylPlayButton>
+							<VinylSeekBackwardButton></VinylSeekBackwardButton>
+							<VinylSeekForwardButton></VinylSeekForwardButton>
 						</div>
 						<div className="vinyl__media-range">
-							<MediaTimeRange></MediaTimeRange>
-							<MediaTimeDisplay showDuration></MediaTimeDisplay>
+							<VinylTimeRange></VinylTimeRange>
+							<VinylTimeDisplay showDuration></VinylTimeDisplay>
 						</div>
 						<div className="vinyl__media-sound">
-							<MediaPlaybackRateButton></MediaPlaybackRateButton>
-							<MediaMuteButton></MediaMuteButton>
-							<MediaVolumeRange></MediaVolumeRange>
+							<VinylPlaybackRateButton></VinylPlaybackRateButton>
+							<VinylMuteButton></VinylMuteButton>
+							<VinylVolumeRange></VinylVolumeRange>
 						</div>
-					</MediaControlBar>
-				</MediaController>
+					</VinylControlBar>
+				</VinylController>
 				{hasCaption(attributes) && (
 					<RichText.Content
 						tagName="figcaption"

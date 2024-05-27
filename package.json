@@ -15,6 +15,7 @@
 	"bugs": {
 		"url": "https://github.com/wp-blocks/vinyl/issues"
 	},
+	"type": "module",
 	"files": [
 		"build/*",
 		"includes/*",
@@ -30,6 +31,7 @@
 	"scripts": {
 		"build": "wp-scripts build --config webpack.config.cjs",
 		"build:pot": "make-pot . languages",
+		"build:react": "node ./bin/react/build.js",
 		"clean": "rm -rf build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -61,7 +63,7 @@
 		"@wordpress/prettier-config": "^3.13.0",
 		"@wordpress/scripts": "^27.7.0",
 		"@wordpress/stylelint-config": "^21.39.0",
-		"@wp-blocks/make-pot": "^1.2.0",
+		"@wp-blocks/make-pot": "^1.3.2",
 		"@wp-blocks/tsconfig": "^0.1.0",
 		"eslint": "^8.57.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
