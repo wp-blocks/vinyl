@@ -41,6 +41,12 @@
 			"source": "attribute",
 			"selector": "audio",
 			"attribute": "preload"
+		},
+		"trackBarColor": {
+			"type": "string"
+		},
+		"trackBackgroundColor": {
+			"type": "string"
 		}
 	},
 	"supports": {

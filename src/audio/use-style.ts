@@ -6,11 +6,7 @@ import { Attributes } from './types';
  * @param attributes The audio block attributes.
  */
 export default function useStyle(attributes: Attributes): React.CSSProperties {
-	const style = useMemo(
-		() => computeStyle(attributes),
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[attributes.textColor, attributes.backgroundColor, attributes.style]
-	);
+	const style = useMemo(() => computeStyle(attributes), [attributes]);
 
 	return style;
 }
@@ -32,5 +28,28 @@ export function computeStyle(attributes: Attributes) {
 		result['--vinyl-text-color'] = attributes.style.color.text;
 	}
 
+	if (attributes.trackBarColor) {
+		if (isColorValue(attributes.trackBarColor)) {
+			result['--vinyl-track-bar-color'] = attributes.trackBarColor;
+		} else {
+			result['--vinyl-track-bar-color'] =
+				`var(--wp--preset--color--${attributes.trackBarColor})`;
+		}
+	}
+
+	if (attributes.trackBackgroundColor) {
+		if (isColorValue(attributes.trackBackgroundColor)) {
+			result['--vinyl-track-background-color'] =
+				attributes.trackBackgroundColor;
+		} else {
+			result['--vinyl-track-background-color'] =
+				`var(--wp--preset--color--${attributes.trackBackgroundColor})`;
+		}
+	}
+
 	return result;
+}
+
+function isColorValue(value: string) {
+	return /^#[0-9a-f]{3,6}$/i.test(value);
 }

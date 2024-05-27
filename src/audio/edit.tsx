@@ -5,6 +5,7 @@ import {
 	InspectorControls,
 	MediaPlaceholder,
 	MediaReplaceFlow,
+	PanelColorSettings,
 	useBlockProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
@@ -39,7 +40,8 @@ function VinylEdit({
 	isSelected: isSingleSelected,
 	insertBlocksAfter,
 }: BlockEditProps<Attributes>) {
-	const { id, loop, preload, src } = attributes;
+	const { id, loop, preload, src, trackBarColor, trackBackgroundColor } =
+		attributes;
 
 	const isTemporaryAudio = !id && isBlobURL(src);
 
@@ -190,7 +192,32 @@ function VinylEdit({
 					/>
 				</PanelBody>
 			</InspectorControls>
+			<InspectorControls group="styles">
+				<PanelColorSettings
+					title={__('Additional Colors')}
+					colorSettings={[
+						{
+							value: trackBarColor,
+							onChange: (value) => {
+								setAttributes({ trackBarColor: value });
+							},
 
+							label:
+								/* translators: color setting label of the track bar UI */
+								__('Track Foreground', 'vinyl'),
+						},
+						{
+							value: trackBackgroundColor,
+							onChange: (value) => {
+								setAttributes({ trackBackgroundColor: value });
+							},
+							label:
+								/* translators: color setting label of the track bar UI */
+								__('Track Background', 'vinyl'),
+						},
+					]}
+				/>
+			</InspectorControls>
 			<figure {...blockProps}>
 				{/*
 					Disable the audio tag if the block is not selected

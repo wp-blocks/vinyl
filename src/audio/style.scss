@@ -1,6 +1,15 @@
 .wp-block-vinyl-audio {
 	--vinyl-background-color: var(--wp--preset--color--base, transparent);
 	--vinyl-text-color: var(--wp--preset--color--contrast, #000);
+	--vinyl-track-bar-color: var(--vinyl-text-color);
+	--vinyl-track-background-color: rgb(0 0 0 / 0.02);
+
+	--vinyl-ring-shadow: 0 0 #0000;
+	--vinyl-ring-offset-shadow: 0 0 #0000;
+	--vinyl-shadow-color: rgb(0 0 0 / 0.05);
+	--vinyl-shadow-colored: 0 20px 25px -5px var(--vinyl-shadow-color),
+		0 8px 10px -6px var(--vinyl-shadow-color);
+	--vinyl-shadow: var(--vinyl-shadow-colored);
 
 	/* This block has customizable padding, border-box makes that more predictable. */
 	box-sizing: border-box;
@@ -21,6 +30,39 @@
 
 		/* The primary color is used for --media-text-color and --media-icon-color. */
 		--media-primary-color: var(--vinyl-text-color);
+
+		box-shadow: var(--vinyl-ring-offset-shadow, 0 0 #0000),
+			var(--vinyl-ring-shadow, 0 0 #0000), var(--vinyl-shadow);
+	}
+
+	vinyl-time-range {
+		--media-range-track-background: var(
+			--vinyl-track-background-color,
+			transparent
+		);
+		--media-time-buffered-color: rgb(0 0 0 / 0.02);
+		--media-range-bar-color: var(--vinyl-track-bar-color);
+		--media-range-track-border-radius: 4px;
+		--media-range-track-height: 0.5rem;
+		--media-range-thumb-background: var(--media-primary-color);
+		--media-range-thumb-box-shadow: 0 0 0 2px var(--media-background-color);
+		--media-range-thumb-width: 0.25rem;
+		--media-range-thumb-height: 1rem;
+		--media-preview-time-text-shadow: transparent;
+	}
+
+	vinyl-volume-range {
+		--media-range-track-background: var(
+			--vinyl-track-background-color,
+			transparent
+		);
+		--media-range-bar-color: var(--vinyl-track-bar-color);
+		--media-range-track-border-radius: 4px;
+		--media-range-track-height: 0.5rem;
+		--media-range-thumb-background: var(--media-primary-color);
+		--media-range-thumb-box-shadow: 0 0 0 2px var(--media-background-color);
+		--media-range-thumb-width: 0.25rem;
+		--media-range-thumb-height: 1rem;
 	}
 
 	/* Show full-width when not aligned. */

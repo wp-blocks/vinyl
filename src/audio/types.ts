@@ -19,6 +19,16 @@ export interface Attributes {
 	backgroundColor?: string;
 
 	/**
+	 * The `--media-range-bar-color` CSS custom property value.
+	 */
+	trackBarColor?: string;
+
+	/**
+	 * The `--media-range-track-background` CSS custom property value.
+	 */
+	trackBackgroundColor?: string;
+
+	/**
 	 * The block's style settings.
 	 */
 	style?: Style;
