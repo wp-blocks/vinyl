@@ -27,6 +27,13 @@ const VinylController = React.forwardRef(({ children = [], ...props }, ref) => {
 export { VinylController };
 
 /** @type { import("react").HTMLElement } */
+const VinylDurationDisplay = React.forwardRef(({ children = [], ...props }, ref) => {
+  return React.createElement('vinyl-duration-display', toNativeProps({ ...props, suppressHydrationWarning: true, ref }), children);
+});
+
+export { VinylDurationDisplay };
+
+/** @type { import("react").HTMLElement } */
 const VinylMuteButton = React.forwardRef(({ children = [], ...props }, ref) => {
   return React.createElement('vinyl-mute-button', toNativeProps({ ...props, suppressHydrationWarning: true, ref }), children);
 });

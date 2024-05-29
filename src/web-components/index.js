@@ -1,6 +1,7 @@
 export { default as VinylContainer } from './vinyl-container.js';
 export { default as VinylControlBar } from './vinyl-control-bar.js';
 export { default as VinylController } from './vinyl-controller.js';
+export { default as VinylDurationDisplay } from './vinyl-duration-display.js';
 export { default as VinylMuteButton } from './vinyl-mute-button.js';
 export { default as VinylPlayButton } from './vinyl-play-button.js';
 export { default as VinylPlaybackRateButton } from './vinyl-playback-rate-button.js';

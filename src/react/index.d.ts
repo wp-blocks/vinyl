@@ -33,6 +33,9 @@ export { VinylControlBar };
 declare const VinylController: GenericForwardRef;
 export { VinylController };
 
+declare const VinylDurationDisplay: GenericForwardRef;
+export { VinylDurationDisplay };
+
 declare const VinylMuteButton: GenericForwardRef;
 export { VinylMuteButton };
 

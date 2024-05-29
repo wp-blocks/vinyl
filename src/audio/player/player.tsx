@@ -1,6 +1,7 @@
 import {
 	VinylController,
 	VinylControlBar,
+	VinylDurationDisplay,
 	VinylMuteButton,
 	VinylPlayButton,
 	VinylPlaybackRateButton,
@@ -8,38 +9,26 @@ import {
 	VinylSeekForwardButton,
 	VinylTimeRange,
 	VinylTimeDisplay,
-	VinylVolumeRange,
 } from '../../react/index.js';
 import type { Attributes } from '../types';
 
-type Props = Omit<Attributes, 'caption' | 'id'> & {
+type Props = Pick<Attributes, 'loop' | 'preload' | 'src'> & {
 	style?: React.CSSProperties;
 };
 
 export default function Player({ loop, preload, src, style }: Props) {
 	return (
-		<VinylController
-			audio={true}
-			autohide="-1"
-			className="vinyl__player"
-			style={style}
-		>
+		<VinylController audio={true} autohide="-1" style={style}>
 			<audio slot="media" src={src} preload={preload} loop={loop} />
-			<VinylControlBar className="vinyl__control-bar">
-				<div className="vinyl__media-controls">
-					<VinylPlayButton></VinylPlayButton>
-					<VinylSeekBackwardButton></VinylSeekBackwardButton>
-					<VinylSeekForwardButton></VinylSeekForwardButton>
-				</div>
-				<div className="vinyl__media-range">
-					<VinylTimeRange></VinylTimeRange>
-					<VinylTimeDisplay showDuration></VinylTimeDisplay>
-				</div>
-				<div className="vinyl__media-sound">
-					<VinylPlaybackRateButton></VinylPlaybackRateButton>
-					<VinylMuteButton></VinylMuteButton>
-					<VinylVolumeRange></VinylVolumeRange>
-				</div>
+			<VinylControlBar>
+				<VinylSeekBackwardButton></VinylSeekBackwardButton>
+				<VinylPlayButton></VinylPlayButton>
+				<VinylSeekForwardButton></VinylSeekForwardButton>
+				<VinylTimeDisplay></VinylTimeDisplay>
+				<VinylTimeRange className="vinyl__time-range"></VinylTimeRange>
+				<VinylDurationDisplay></VinylDurationDisplay>
+				<VinylPlaybackRateButton></VinylPlaybackRateButton>
+				<VinylMuteButton></VinylMuteButton>
 			</VinylControlBar>
 		</VinylController>
 	);
