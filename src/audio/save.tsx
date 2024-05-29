@@ -1,19 +1,7 @@
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 import type { BlockSaveProps } from '@wordpress/blocks';
 
-import {
-	VinylController,
-	VinylControlBar,
-	VinylMuteButton,
-	VinylPlayButton,
-	VinylPlaybackRateButton,
-	VinylSeekBackwardButton,
-	VinylSeekForwardButton,
-	VinylTimeRange,
-	VinylTimeDisplay,
-	VinylVolumeRange,
-} from '../react/index.js';
-
+import { Player } from './player/index.js';
 import type { Attributes } from './types';
 import { computeStyle } from './use-style.js';
 
@@ -28,35 +16,7 @@ export default function Save({ attributes }: BlockSaveProps<Attributes>) {
 	return (
 		src && (
 			<figure {...blockProps}>
-				<VinylController
-					audio={true}
-					autohide="-1"
-					className="vinyl__player"
-					style={style}
-				>
-					<audio
-						slot="media"
-						src={src}
-						preload={preload}
-						loop={loop}
-					/>
-					<VinylControlBar className="vinyl__control-bar">
-						<div className="vinyl__media-controls">
-							<VinylPlayButton></VinylPlayButton>
-							<VinylSeekBackwardButton></VinylSeekBackwardButton>
-							<VinylSeekForwardButton></VinylSeekForwardButton>
-						</div>
-						<div className="vinyl__media-range">
-							<VinylTimeRange></VinylTimeRange>
-							<VinylTimeDisplay showDuration></VinylTimeDisplay>
-						</div>
-						<div className="vinyl__media-sound">
-							<VinylPlaybackRateButton></VinylPlaybackRateButton>
-							<VinylMuteButton></VinylMuteButton>
-							<VinylVolumeRange></VinylVolumeRange>
-						</div>
-					</VinylControlBar>
-				</VinylController>
+				<Player loop={loop} preload={preload} src={src} style={style} />
 				{hasCaption(attributes) && (
 					<RichText.Content
 						tagName="figcaption"

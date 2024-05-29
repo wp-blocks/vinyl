@@ -20,7 +20,7 @@ export default function Player({ loop, preload, src, style }: Props) {
 	return (
 		<VinylController audio={true} autohide="-1" style={style}>
 			<audio slot="media" src={src} preload={preload} loop={loop} />
-			<VinylControlBar>
+			<VinylControlBar className="vinyl__control-bar--normal">
 				<VinylSeekBackwardButton></VinylSeekBackwardButton>
 				<VinylPlayButton></VinylPlayButton>
 				<VinylSeekForwardButton></VinylSeekForwardButton>
