@@ -5,6 +5,7 @@ import {
 	InspectorControls,
 	MediaPlaceholder,
 	MediaReplaceFlow,
+	PanelColorSettings,
 	useBlockProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
@@ -28,6 +29,7 @@ import './editor.scss';
 import Caption from './edit/caption.js';
 import { Player } from './player/index.js';
 import type { Attributes } from './types';
+import useStyle from './use-style.js';
 
 const ALLOWED_MEDIA_TYPES = ['audio'];
 
@@ -38,7 +40,8 @@ function VinylEdit({
 	isSelected: isSingleSelected,
 	insertBlocksAfter,
 }: BlockEditProps<Attributes>) {
-	const { id, loop, preload, src } = attributes;
+	const { id, loop, preload, src, trackBarColor, trackBackgroundColor } =
+		attributes;
 
 	const isTemporaryAudio = !id && isBlobURL(src);
 
@@ -114,6 +117,8 @@ function VinylEdit({
 		className: classes,
 	});
 
+	const style = useStyle(attributes);
+
 	if (!src) {
 		return (
 			<div {...blockProps}>
@@ -187,7 +192,32 @@ function VinylEdit({
 					/>
 				</PanelBody>
 			</InspectorControls>
+			<InspectorControls group="styles">
+				<PanelColorSettings
+					title={__('Additional Colors')}
+					colorSettings={[
+						{
+							value: trackBarColor,
+							onChange: (value) => {
+								setAttributes({ trackBarColor: value });
+							},
 
+							label:
+								/* translators: color setting label of the track bar UI */
+								__('Track Foreground', 'vinyl'),
+						},
+						{
+							value: trackBackgroundColor,
+							onChange: (value) => {
+								setAttributes({ trackBackgroundColor: value });
+							},
+							label:
+								/* translators: color setting label of the track bar UI */
+								__('Track Background', 'vinyl'),
+						},
+					]}
+				/>
+			</InspectorControls>
 			<figure {...blockProps}>
 				{/*
 					Disable the audio tag if the block is not selected
@@ -196,7 +226,12 @@ function VinylEdit({
 				*/}
 
 				<Disabled isDisabled={!isSingleSelected}>
-					<Player loop={loop} preload={preload} src={src} />
+					<Player
+						loop={loop}
+						preload={preload}
+						src={src}
+						style={style}
+					/>
 				</Disabled>
 
 				{isTemporaryAudio && <Spinner />}

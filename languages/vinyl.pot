@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"POT-Creation-Date: 2024-05-27T14:00:03.421Z\n"
+"POT-Creation-Date: 2024-05-27T18:37:17.833Z\n"
 "PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: codekraft, bitmachina <EMAIL>\n"
 "Language-Team: codekraft, bitmachina <EMAIL>\n"
@@ -50,21 +50,6 @@ msgstr ""
 msgid "Vinyl Audio requires WordPress 6.3 or later."
 msgstr ""
 
-#: src/web-components/vinyl-time-display.js:41
-msgid "Media not loaded, unknown time."
-msgstr ""
-
-# 1: current time, 2: total time
-#: src/web-components/vinyl-time-display.js:77
-msgid "%1$s of %2$s"
-msgstr ""
-
-# playback rate with multiplication symbol
-#: src/web-components/vinyl-playback-rate-button.js:58
-#: src/web-components/vinyl-playback-rate-button.js:76
-msgid "%sx"
-msgstr ""
-
 #: src/utils/time.js:37
 msgid "hour"
 msgstr ""
@@ -87,6 +72,21 @@ msgstr ""
 
 #: src/utils/time.js:46
 msgid "seconds"
+msgstr ""
+
+#: src/web-components/vinyl-time-display.js:41
+msgid "Media not loaded, unknown time."
+msgstr ""
+
+# 1: current time, 2: total time
+#: src/web-components/vinyl-time-display.js:77
+msgid "%1$s of %2$s"
+msgstr ""
+
+# playback rate with multiplication symbol
+#: src/web-components/vinyl-playback-rate-button.js:58
+#: src/web-components/vinyl-playback-rate-button.js:76
+msgid "%sx"
 msgstr ""
 
 #: src/labels/create-labels.js:5
@@ -199,27 +199,41 @@ msgstr ""
 msgid "playing live"
 msgstr ""
 
-#: src/audio/edit.tsx:152
+#: src/audio/edit.tsx:157
 msgid "Settings"
 msgstr ""
 
-#: src/audio/edit.tsx:155
+#: src/audio/edit.tsx:160
 msgid "Loop"
 msgstr ""
 
-#: src/audio/edit.tsx:175
+#: src/audio/edit.tsx:180
 msgid "Browser default"
 msgstr ""
 
-#: src/audio/edit.tsx:177
+#: src/audio/edit.tsx:182
 msgid "Auto"
 msgstr ""
 
-#: src/audio/edit.tsx:180
+#: src/audio/edit.tsx:185
 msgid "Metadata"
 msgstr ""
 
-#: src/audio/edit.tsx:209
+#: src/audio/edit.tsx:197
+msgid "Additional Colors"
+msgstr ""
+
+# color setting label of the track bar UI
+#: src/audio/edit.tsx:207
+msgid "Track Foreground"
+msgstr ""
+
+# color setting label of the track bar UI
+#: src/audio/edit.tsx:216
+msgid "Track Background"
+msgstr ""
+
+#: src/audio/edit.tsx:244
 msgid "Audio caption text"
 msgstr ""
 
@@ -236,12 +250,12 @@ msgstr ""
 msgid "Remove caption"
 msgstr ""
 
-#: src/audio/edit.tsx:160
+#: src/audio/edit.tsx:165
 msgctxt "noun; Audio block parameter"
 msgid "Preload"
 msgstr ""
 
-#: src/audio/edit.tsx:184
+#: src/audio/edit.tsx:189
 msgctxt "Preload value"
 msgid "None"
 msgstr ""

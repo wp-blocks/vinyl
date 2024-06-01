@@ -41,11 +41,22 @@
 			"source": "attribute",
 			"selector": "audio",
 			"attribute": "preload"
+		},
+		"trackBarColor": {
+			"type": "string"
+		},
+		"trackBackgroundColor": {
+			"type": "string"
 		}
 	},
 	"supports": {
 		"anchor": true,
 		"align": true,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": false
+		},
 		"spacing": {
 			"margin": true,
 			"padding": true

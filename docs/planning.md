@@ -8,6 +8,11 @@ Replicate the functionality of the audio block. Using the `audio` element.
 
 Add a custom UI that replicates the features of the standard `audio` element.
 
+### Color Supports
+
+-   [Block Supports - Color](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/#color)
+-   [Theme Supports - Color Palettes](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-color-palettes)
+
 ## Step Three
 
 Incrementally add features to expand the functionality.
