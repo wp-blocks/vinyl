@@ -17,6 +17,31 @@ Add a custom UI that replicates the features of the standard `audio` element.
 
 Incrementally add features to expand the functionality.
 
+### Multiple blocks
+
+It might be possible to break the whole player into separate blocks. This would allow the maximum in customization.
+
+-   Duration Display - Static
+-   Mute Button - Static
+-   Play Button - Static
+-   Playback Rate Button - Static
+-   Seek Forward - Static
+-   Seek Backward - Static
+-   Time Display - Static
+-   Time Range Display - Static
+-   Volume Range - Static
+-   Cover Image - Dynamic
+-   Audio - Dynamic - This would be the audio element itself, it's src could be dynamically set based on the media upload file metadata.
+-   Cover - Dynamic - The cover art for the audio. The data is retrieved similar to the above.
+-   Audio Name - Dynamic - The title of the audio file.
+-   Audio Author/Artist - Dynamic - The name of the author the audio file.
+
+#### Possible
+
+-   Playlist - This could be either dynamic or static. It would be coolest to associate it with a post type and could use the most recent or something like that, simplest would be associating a number of audio sources.
+-   Seek Forward - Static - This and the below would be buttons to move through the playlist.
+-   Seek Backward - Static
+
 ### Ideas
 
 -   Remember playhead position. I've noticed many players start back at the beginning when you navigate back to the webpage.
@@ -30,6 +55,20 @@ Incrementally add features to expand the functionality.
 -   Styling. Offer some block customizations, though also make sure custom CSS can be used to override the existing styling.
 
 -   Localization. Make it easily to translate. Make it work in different origination, right -> left, or top -> bottom.
+
+-   Theme. Using [`renderToStaticMarkup`](https://react.dev/reference/react-dom/server/renderToStaticMarkup) to create the player_template.php, this would allow an identical experience between using the editor and how it dynamically renders the block.
+
+#### Media Session
+
+Adding support for the Media Session API, when available, would provide the additional information about the audio playing to the browser. Allowing, for example, to show the cover art when a phone's lock screen is enabled.
+
+[Media Session](https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API)
+
+> The Media Session API provides a way to customize media notifications. It does this by providing metadata for display by the user agent for the media your web app is playing.
+
+[MediaMetadata](https://developer.mozilla.org/en-US/docs/Web/API/MediaMetadata)
+
+> The `MediaMetadata` interface of the Media Session API allows a web page to provide rich media metadata for display in a platform UI.
 
 ## References
 
