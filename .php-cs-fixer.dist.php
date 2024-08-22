@@ -11,7 +11,7 @@ use PhpCsFixer\Finder;
 $finder = Finder::create()
 	->exclude( [ 'vendor', 'vendor-prod' ] )
 	->in( [
-		__DIR__ . '/includes',
+		__DIR__ . '/src',
 	] )
 	->name( '*.php' )
 	->ignoreDotFiles( true )

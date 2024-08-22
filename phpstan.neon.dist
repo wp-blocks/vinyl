@@ -4,7 +4,7 @@ parameters:
         - vinyl.php
 
     paths:
-        - includes
+        - src
 
     scanFiles:
         - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php

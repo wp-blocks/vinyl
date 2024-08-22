@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vinyl/audio-source",
+	"version": "0.1.0",
+	"title": "Vinyl Audio Source",
+	"category": "media",
+	"icon": "audio",
+	"description": "An audio source.",
+	"textdomain": "vinyl",
+	"attributes": {
+		"src": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "audio",
+			"attribute": "src",
+			"__experimentalRole": "content"
+		},
+		"id": {
+			"type": "number",
+			"__experimentalRole": "content"
+		},
+		"loop": {
+			"type": "boolean",
+			"source": "attribute",
+			"selector": "audio",
+			"attribute": "loop"
+		},
+		"preload": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "audio",
+			"attribute": "preload"
+		},
+		"blob": {
+			"type": "string",
+			"__experimentalRole": "local"
+		}
+	},
+	"supports": {
+		"supports": {
+			"interactivity": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "vinyl-audio-state"
+}

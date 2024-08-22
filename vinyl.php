@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/wp-blocks/vinyl
  * Description:       An advanced WordPress audio player.
  * Version:           0.1.3
- * Requires at least: 6.3
+ * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            codekraft, bitmachina
  * Author URI:        https://github.com/wp-blocks
@@ -33,12 +33,12 @@ if ( version_compare( phpversion(), '7.4.0', '<' ) ) {
 	return;
 }
 
-if ( !is_wp_version_compatible( '6.3' ) ) {
+if ( !is_wp_version_compatible( '6.6' ) ) {
 	/**
 	 * @return void
 	 */
 	function vinyl_minimum_wp_version_notice() {
-		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires WordPress 6.3 or later.', 'vinyl' ) . '</p></div>';
+		echo '<div class="notice notice-error"><p>' . esc_html__( 'Vinyl Audio requires WordPress 6.6 or later.', 'vinyl' ) . '</p></div>';
 	}
 
 	add_action( 'admin_notices', 'vinyl_minimum_wp_version_notice' );

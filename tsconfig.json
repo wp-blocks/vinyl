@@ -1,24 +1,19 @@
 {
 	"extends": "@wp-blocks/tsconfig",
 	"compilerOptions": {
-		"rootDir": "src",
-		"outDir": "src/build-types",
+		"rootDir": "assets/js",
+		"outDir": "assets/js/build-types",
 		"strict": true,
 		"noImplicitAny": false,
 		"resolveJsonModule": true,
 		"forceConsistentCasingInFileNames": true,
 		"pretty": true,
-		"typeRoots": [
-			"./node_modules/@types"
-		]
+		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": [
-		"src/**/*",
-		"src/audio/block.json"
+		"assets/js",
+		"assets/js/blocks/audio-source/block.json",
+		"assets/js/blocks/player/block.json"
 	],
-	"exclude": [
-		"**/*.test.ts",
-		"build/**/*",
-		"build-types/**/*",
-	]
+	"exclude": ["**/*.test.ts", "build/**/*", "build-types/**/*"]
 }

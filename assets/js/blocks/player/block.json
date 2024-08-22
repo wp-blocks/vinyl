@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vinyl/audio-player",
+	"version": "0.1.0",
+	"title": "Vinyl Audio Player - Next",
+	"category": "media",
+	"allowedBlocks": ["core/group", "vinyl/audio-source"],
+	"icon": "audio",
+	"description": "Embed an audio player.",
+	"keywords": ["music", "sound", "podcast", "recording"],
+	"textdomain": "vinyl",
+	"attributes": {},
+	"supports": {
+		"supports": {
+			"interactivity": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "vinyl-audio-state"
+}

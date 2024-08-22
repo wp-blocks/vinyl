@@ -1,8 +1,8 @@
 === Vinyl ===
 Contributors:      bitmachina, codekraft
 Tags:              audio, block, playlist, player, sound
-Requires at least: 6.3
-Tested up to:      6.5
+Requires at least: 6.6
+Tested up to:      6.6
 Requires PHP:      7.4
 Stable tag:        0.1.3
 License:           GPL v2 or later
@@ -26,7 +26,7 @@ improving the user experience.
 
 = Minimum Requirements =
 
-* WordPress 6.3 or greater
+* WordPress 6.6 or greater
 * PHP version 7.4 or greater
 
 == Source Code ==

@@ -1,0 +1,17 @@
+.vinyl__audio-source {
+	.vinyl__audio-play-button {
+		background-color: green;
+	}
+
+	.vinyl__audio-play-button:hover {
+		background-color: red;
+	}
+
+	.vinyl__audio-play-button:active {
+		background-color: blue;
+	}
+
+	.vinyl__audio-play-button:disabled {
+		background-color: gray;
+	}
+}
